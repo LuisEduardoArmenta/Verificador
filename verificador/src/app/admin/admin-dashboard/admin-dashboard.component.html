@@ -1,0 +1,102 @@
+<div class="dashboard-container">
+  <app-admin-sidebar></app-admin-sidebar>
+  
+  <div class="main-content">
+    <div class="container-fluid">
+      <!-- Resumen General -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <h2 class="mb-4">Resumen General</h2>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-primary text-white">
+            <div class="card-body">
+              <h5 class="card-title">Horarios Activos</h5>
+              <h2 class="card-text">{{totalHorariosActivos}}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-warning text-white">
+            <div class="card-body">
+              <h5 class="card-title">Pendientes de Verificación</h5>
+              <h2 class="card-text">{{totalHorariosPendientes}}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-success text-white">
+            <div class="card-body">
+              <h5 class="card-title">Horarios Verificados</h5>
+              <h2 class="card-text">{{totalHorariosVerificados}}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-info text-white">
+            <div class="card-body">
+              <h5 class="card-title">Profesores Activos</h5>
+              <h2 class="card-text">{{totalProfesoresActivos}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráficos -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Estado de Horarios</h5>
+              <canvas id="estadoHorariosChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Horarios por Carrera</h5>
+              <canvas id="horariosPorCarreraChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actividad Reciente y Alertas -->
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Actividad Reciente</h5>
+              <div class="list-group">
+                <div *ngFor="let actividad of actividadesRecientes" class="list-group-item">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1">{{actividad.titulo}}</h6>
+                    <small>{{actividad.fecha | date:'short'}}</small>
+                  </div>
+                  <p class="mb-1">{{actividad.descripcion}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Alertas</h5>
+              <div class="list-group">
+                <div *ngFor="let alerta of alertas" class="list-group-item list-group-item-action" [ngClass]="{'list-group-item-warning': alerta.tipo === 'warning', 'list-group-item-danger': alerta.tipo === 'danger'}">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1">{{alerta.titulo}}</h6>
+                    <small>{{alerta.fecha | date:'short'}}</small>
+                  </div>
+                  <p class="mb-1">{{alerta.descripcion}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

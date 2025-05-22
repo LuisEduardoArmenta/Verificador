@@ -1,0 +1,76 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="flex-grow-1 ms-3" style="margin-left: 250px !important;">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Historial de Verificaciones</h4>
+            </div>
+            <div class="card-body">
+              <!-- Loading spinner -->
+              <div *ngIf="loading" class="text-center py-4">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Cargando...</span>
+                </div>
+              </div>
+
+              <!-- Error message -->
+              <div *ngIf="error" class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+
+              <!-- Registros list -->
+              <div *ngIf="!loading && !error" class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Grupo</th>
+                      <th>Materia</th>
+                      <th>Profesor</th>
+                      <th>Ubicación</th>
+                      <th>Estado</th>
+                      <th>Observaciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let registro of registros">
+                      <td>{{ formatearFecha(registro.fecha) }}</td>
+                      <td>{{ registro.grupo_nombre }}</td>
+                      <td>{{ registro.materia_nombre }}</td>
+                      <td>{{ registro.profesor_nombre }}</td>
+                      <td>
+                        {{ registro.edificio_nombre }} - {{ registro.aula_nombre }}
+                      </td>
+                      <td>
+                        <span class="badge" [ngClass]="getEstadoClass(registro.estado)">
+                          {{ registro.estado | titlecase }}
+                        </span>
+                      </td>
+                      <td>
+                        <small class="text-muted" *ngIf="registro.observaciones">
+                          {{ registro.observaciones }}
+                        </small>
+                        <small class="text-muted" *ngIf="!registro.observaciones">
+                          Sin observaciones
+                        </small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- No data message -->
+              <div *ngIf="!loading && !error && registros.length === 0" 
+                   class="text-center py-4">
+                <p class="text-muted">No hay registros de verificaciones</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

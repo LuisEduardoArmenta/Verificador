@@ -1,0 +1,115 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="flex-grow-1 ms-3" style="margin-left: 250px !important;">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h4 class="mb-0">Registrar Asistencia</h4>
+              <button class="btn btn-secondary" routerLink="/verificaciones">
+                <i class="bi bi-arrow-left"></i> Volver
+              </button>
+            </div>
+            <div class="card-body">
+              <!-- Loading spinner -->
+              <div *ngIf="loading" class="text-center py-4">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Cargando...</span>
+                </div>
+              </div>
+
+              <!-- Error message -->
+              <div *ngIf="error" class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+
+              <!-- Success message -->
+              <div *ngIf="registroExitoso" class="alert alert-success" role="alert">
+                Registro guardado exitosamente
+              </div>
+
+              <!-- Horario details -->
+              <div *ngIf="!loading && !error && horario" class="row">
+                <div class="col-12">
+                  <h5>Detalles del Horario</h5>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Día</th>
+                        <th>Hora</th>
+                        <th>Materia</th>
+                        <th>Profesor</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let detalle of ordenarDias(horario.detalles)">
+                        <td>{{ detalle.dia }}</td>
+                        <td>{{ detalle.hora }}</td>
+                        <td>{{ detalle.materia }}</td>
+                        <td>{{ detalle.profesor }}</td>
+                        <td>
+                          <div class="btn-group">
+                            <button class="btn btn-success btn-sm" (click)="registrarAsistencia(detalle, 'presente')">
+                              <i class="bi bi-check-circle"></i> Presente
+                            </button>
+                            <button class="btn btn-warning btn-sm" (click)="registrarAsistencia(detalle, 'retardo')">
+                              <i class="bi bi-clock"></i> Retardo
+                            </button>
+                            <button class="btn btn-danger btn-sm" (click)="registrarAsistencia(detalle, 'falta')">
+                              <i class="bi bi-x-circle"></i> Falta
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- No data message -->
+              <div *ngIf="!loading && !error && !horario" class="text-center py-4">
+                <p class="text-muted">No se encontró el horario</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Registro -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalRegistroLabel">Registrar Asistencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select class="form-select" formControlName="estado">
+              <option value="presente">Presente</option>
+              <option value="retardo">Retardo</option>
+              <option value="falta">Falta</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Observaciones</label>
+            <textarea class="form-control" formControlName="observaciones" rows="3"></textarea>
+          </div>
+          <div class="text-end">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary ms-2" [disabled]="!registroForm.valid">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

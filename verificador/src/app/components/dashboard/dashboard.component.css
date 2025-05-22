@@ -1,0 +1,50 @@
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  margin-left: 250px; /* Ancho del sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.activity-item {
+  transition: all 0.2s ease;
+}
+
+.activity-item:hover {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.table th {
+  font-weight: 600;
+  color: #495057;
+}
+
+.badge {
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(13, 110, 253, 0.1);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,135 @@
+<div class="dashboard-wrapper">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Main Content -->
+  <div class="main-content" style="margin-left: 250px; padding: 20px;">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h4 class="mb-0">Dashboard</h4>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-primary me-2" (click)="onNewVerification()">
+          <i class="bi bi-plus-circle me-2"></i>
+          Nueva Verificación
+        </button>
+        <div class="dropdown">
+          <button class="btn btn-light position-relative" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{notificationCount}}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Stats Cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3" *ngFor="let stat of statsData">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-muted mb-2">{{stat.label}}</h6>
+                <h4 class="mb-0">{{stat.value}}</h4>
+              </div>
+              <div class="rounded-circle p-3" [ngClass]="stat.iconClass">
+                <i [class]="'bi ' + stat.icon + ' ' + stat.textClass"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Current Classes & Quick Actions -->
+    <div class="row g-3 mb-4">
+      <!-- Current Classes -->
+      <div class="col-md-8">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-0">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Clases en Curso</h5>
+              <button class="btn btn-sm btn-outline-primary" (click)="onViewAllClasses()">Ver Todas</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Profesor</th>
+                    <th>Materia</th>
+                    <th>Salón</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let class of currentClasses">
+                    <td>{{class.professor}}</td>
+                    <td>{{class.subject}}</td>
+                    <td>{{class.classroom}}</td>
+                    <td>{{class.time}}</td>
+                    <td>
+                      <span class="badge" [ngClass]="class.statusClass">{{class.status}}</span>
+                    </td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" (click)="onVerifyClass(class)">
+                        Verificar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Quick Actions -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-0">
+            <h5 class="mb-0">Acciones Rápidas</h5>
+          </div>
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-primary" (click)="onNewVerification()">
+                <i class="bi bi-plus-circle me-2"></i>
+                Nueva Verificación
+              </button>
+              <button class="btn btn-outline-secondary" (click)="onGenerateReport()">
+                <i class="bi bi-file-earmark-pdf me-2"></i>
+                Generar Reporte
+              </button>
+              <button class="btn btn-outline-info" (click)="onViewSchedule()">
+                <i class="bi bi-calendar-plus me-2"></i>
+                Ver Horarios
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Recent Activity -->
+        <div class="card border-0 shadow-sm mt-3">
+          <div class="card-header bg-white border-0">
+            <h5 class="mb-0">Actividad Reciente</h5>
+          </div>
+          <div class="card-body">
+            <div class="activity-item d-flex align-items-center mb-3" *ngFor="let activity of recentActivity">
+              <div class="rounded-circle p-2 me-3" [ngClass]="activity.iconClass">
+                <i [class]="'bi ' + activity.icon + ' ' + activity.textClass"></i>
+              </div>
+              <div>
+                <p class="mb-0 small">{{activity.description}}</p>
+                <small class="text-muted">{{activity.time}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

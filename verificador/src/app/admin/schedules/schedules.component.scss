@@ -1,0 +1,149 @@
+.card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  margin-bottom: 1rem;
+}
+
+.btn-group {
+  .btn {
+    margin-right: 0.25rem;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.table {
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+  
+  td {
+    vertical-align: middle;
+  }
+}
+
+.badge {
+  font-size: 0.875rem;
+  padding: 0.5em 0.75em;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-select {
+  &:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  
+  .modal-title {
+    font-weight: 600;
+  }
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.table-responsive {
+  margin-bottom: 0;
+}
+
+// Estilos para la tabla de horarios
+.horario-table {
+  th, td {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .hora-cell {
+    font-weight: 600;
+    background-color: #f8f9fa;
+  }
+  
+  .detalle-cell {
+    min-width: 200px;
+    
+    select {
+      margin-bottom: 0.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Estilos para los botones de acción
+.btn-action {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  
+  i {
+    margin-right: 0.25rem;
+  }
+}
+
+// Estilos para los estados
+.estado-badge {
+  &.activo {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  &.inactivo {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  &.pendiente {
+    background-color: #ffc107;
+    color: #000;
+  }
+  
+  &.verificado {
+    background-color: #17a2b8;
+    color: white;
+  }
+}
+
+// Estilos para los formularios
+.form-group {
+  margin-bottom: 1rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+// Estilos para los mensajes de error
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+// Estilos para los tooltips
+.tooltip {
+  .tooltip-inner {
+    background-color: #343a40;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .arrow::before {
+    border-top-color: #343a40;
+  }
+} 

@@ -1,0 +1,121 @@
+.sidebar {
+  transition: all 0.3s ease;
+  background: linear-gradient(180deg, #34495e 0%, #2c3e50 100%);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  color: #ecf0f1 !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.nav-link.active {
+  background: linear-gradient(90deg, #16a085 0%, #1abc9c 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.border-bottom, .border-top {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Estilos específicos para el menú */
+.nav-link i {
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link.active i {
+  color: #fff;
+}
+
+/* Efecto hover en los elementos del menú */
+.nav-link:hover i {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Estilo para el botón de cerrar sesión */
+.nav-link:last-child {
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.nav-link:last-child:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Estilos para el logo y header */
+.logo-container {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.logo-container img {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Estilos para la información del usuario */
+.user-info {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #16a085, #1abc9c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #ecf0f1;
+  margin: 0;
+}
+
+.user-role {
+  color: #bdc3c7;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Estilos para el menú inferior */
+.bottom-menu {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-item {
+  animation: fadeIn 0.3s ease forwards;
+}

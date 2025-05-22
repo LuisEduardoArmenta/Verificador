@@ -1,0 +1,62 @@
+.card {
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem;
+}
+
+.card-header h4 {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  font-weight: 600;
+  color: #2c3e50;
+  border-top: none;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+  padding: 0.5em 1em;
+  font-weight: 500;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.alert {
+  border-radius: 8px;
+  border: none;
+}
+
+.text-muted {
+  color: #7f8c8d !important;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+.table-responsive {
+  margin: 0;
+  padding: 0;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}

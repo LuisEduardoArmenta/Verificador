@@ -1,0 +1,109 @@
+<div class="d-flex">
+    <app-admin-sidebar></app-admin-sidebar>
+    
+    <div class="main-content flex-grow-1 p-4">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Gestión de Usuarios</h3>
+        </div>
+        <div class="card-body">
+          <!-- Mensaje de error -->
+          <div *ngIf="error" class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+
+          <!-- Barra de búsqueda -->
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Buscar usuarios..." [(ngModel)]="searchTerm" (input)="onSearch()">
+          </div>
+
+          <!-- Tabla de usuarios -->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Usuario</th>
+                  <th>Nombre Completo</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th>Rol</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of filteredUsers">
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.full_name }}</td>
+                  <td>{{ user.phone }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                    <span class="badge" [ngClass]="getRoleBadgeClass(user.role)">
+                      {{ user.role }}
+                    </span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-primary me-2" (click)="editUser(user)">
+                      <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">
+                      <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal de edición -->
+<div class="modal fade" [class.show]="showModal" [class.d-block]="showModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Usuario</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="editingUser">
+          <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <input type="text" class="form-control" [(ngModel)]="editingUser.username" name="username">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" [(ngModel)]="editingUser.full_name" name="full_name">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="text" class="form-control" [(ngModel)]="editingUser.phone" name="phone">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="editingUser.email" name="email">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Rol</label>
+            <select class="form-select" [(ngModel)]="editingUser.role" name="role">
+              <option value="admin">Admin</option>
+              <option value="verificador">Verificador</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nueva Contraseña (dejar en blanco para mantener la actual)</label>
+            <input type="password" class="form-control" [(ngModel)]="editingUser.password" name="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="saveUser()">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+

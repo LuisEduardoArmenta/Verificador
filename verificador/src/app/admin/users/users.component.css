@@ -1,0 +1,97 @@
+.main-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    margin-left: 250px; /* Ancho del sidebar */
+    width: calc(100% - 250px);
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin: 0;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  }
+  
+  .card-header {
+    border-bottom: 1px solid #eee;
+    padding: 1rem;
+  }
+  
+  .search-box {
+    width: 300px;
+  }
+  
+  .table th {
+    font-weight: 600;
+    color: #495057;
+    border-top: none;
+    white-space: nowrap;
+  }
+  
+  .table td {
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .badge {
+    padding: 0.5em 0.75em;
+    font-weight: 500;
+  }
+  
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .modal {
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid #eee;
+    padding: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #eee;
+    padding: 1rem;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+  }
+  
+  .table-responsive {
+    margin: 0;
+    overflow-x: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+    }
+    
+    .search-box {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .card-header {
+      flex-direction: column;
+    }
+  }

@@ -1,0 +1,76 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="flex-grow-1 ms-3" style="margin-left: 250px !important;">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Horarios Asignados</h4>
+            </div>
+            <div class="card-body">
+              <!-- Loading spinner -->
+              <div *ngIf="loading" class="text-center py-4">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Cargando...</span>
+                </div>
+              </div>
+
+              <!-- Error message -->
+              <div *ngIf="error" class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+
+              <!-- Horarios list -->
+              <div *ngIf="!loading && !error" class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Grupo</th>
+                      <th>Carrera</th>
+                      <th>Edificio</th>
+                      <th>Aula</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let horario of horarios">
+                      <td>{{ horario.grupo_nombre }}</td>
+                      <td>{{ horario.carrera_nombre }}</td>
+                      <td>{{ horario.edificio_nombre }}</td>
+                      <td>{{ horario.aula_nombre }}</td>
+                      <td>
+                        <span class="badge" [ngClass]="getEstadoClass(horario.estado)">
+                          {{ horario.estado }}
+                        </span>
+                      </td>
+                      <td>
+                        <div class="btn-group">
+                          <a [routerLink]="['/verificaciones/registro', horario.id]" 
+                             class="btn btn-primary btn-sm">
+                            <i class="bi bi-check-circle"></i> Registrar
+                          </a>
+                          <button class="btn btn-info btn-sm ms-2" 
+                                  [routerLink]="['/verificaciones/detalle', horario.id]">
+                            <i class="bi bi-eye"></i> Ver
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- No data message -->
+              <div *ngIf="!loading && !error && horarios.length === 0" 
+                   class="text-center py-4">
+                <p class="text-muted">No hay horarios asignados</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

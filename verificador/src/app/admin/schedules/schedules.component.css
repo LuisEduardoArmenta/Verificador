@@ -1,0 +1,500 @@
+:host {
+  display: block;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  width: 100%;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.container-fluid {
+  padding: 0;
+  width: 100%;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 1rem 1.5rem;
+}
+
+.nav-container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: #6c757d;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: #f8f9fa;
+  color: #0d6efd;
+}
+
+.nav-btn.active {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-outline-primary {
+  border: 2px solid #3498db;
+  color: #3498db;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary.active {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  border-color: transparent;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5c636a;
+  border-color: #565e64;
+}
+
+.btn-warning {
+  color: #000;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-warning:hover {
+  color: #000;
+  background-color: #ffca2c;
+  border-color: #ffc720;
+}
+
+.btn-danger {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  border: none;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(45deg, #c0392b, #e74c3c);
+}
+
+.form-control:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-select-sm {
+  font-size: 0.875rem;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.badge-verificado {
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
+  color: white;
+}
+
+.badge-pendiente {
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  color: white;
+}
+
+.badge-asignado {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-select:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Estilos para la tabla de horarios */
+.table-horarios {
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.table-horarios th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: center;
+}
+
+.table-horarios td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+/* Estilos para los campos en las celdas de horario */
+.horario-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.horario-cell .form-control,
+.horario-cell .form-select {
+  font-size: 0.875rem;
+  padding: 4px 8px;
+}
+
+/* Estilos para el modal */
+.modal-xl {
+  max-width: 95%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .modal-xl {
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .table-horarios {
+    font-size: 0.8rem;
+  }
+
+  .btn-action {
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+.btn-group .btn {
+  margin-right: 5px;
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
+.horario-table td {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.action-buttons .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Estilos para los botones de acción */
+.btn-action {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin: 0 0.2rem;
+  transition: all 0.3s ease;
+  border: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 100px;
+  height: 36px;
+  font-size: 0.9rem;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-action.btn-info {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+}
+
+.btn-action.btn-primary {
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
+}
+
+.btn-action.btn-danger {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+/* Estilos para el modal de detalles */
+.modal-detalles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-detalles.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-detalles .modal-dialog {
+  width: 90%;
+  max-width: 1000px;
+  margin: 1.75rem auto;
+  transform: translateY(-50px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal-detalles.show .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-detalles .modal-header {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-detalles .modal-body {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-detalles .modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  background: #f8f9fa;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Estilos para la información del verificador */
+.verificador-info {
+  background: rgba(52, 152, 219, 0.1);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.verificador-info h6 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.verificador-info p {
+  color: #34495e;
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Estilos para el botón de exportar */
+.btn-export {
+  background: linear-gradient(45deg, #9b59b6, #8e44ad);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-export:hover {
+  background: linear-gradient(45deg, #8e44ad, #9b59b6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(155, 89, 182, 0.3);
+}
+
+/* Estilos para la tabla de horarios en el modal */
+.modal-detalles .table-horarios {
+  margin-top: 1rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.modal-detalles .table-horarios th {
+  background: #f8f9fa;
+  padding: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+  text-align: center;
+}
+
+.modal-detalles .table-horarios td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.modal-detalles .horario-detalle {
+  background: #f8f9fa;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* Estilos para el selector de verificador */
+.verificador-select {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 200px;
+}
